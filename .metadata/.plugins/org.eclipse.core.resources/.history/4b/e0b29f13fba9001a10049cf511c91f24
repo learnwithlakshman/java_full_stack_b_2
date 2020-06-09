@@ -1,0 +1,66 @@
+package com.lwl.jdbc.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import com.lwl.jdbc.util.ConnectionUtil;
+
+public class JDBCCurdTest {
+	
+	@BeforeAll
+	public static void init() {
+		ConnectionUtil util = ConnectionUtil.util;
+		Connection con = null;
+		Statement st = null;
+
+		try {
+			System.out.println("Init is done");
+			con = util.getConnection();
+			st = con.createStatement();
+			String DROP_TABLE = "DROP TABLE IF EXISTS student";
+			String DROP_TABLE_ADDRESS = "DROP TABLE IF EXISTS address";
+			st.execute(DROP_TABLE);
+			st.execute(DROP_TABLE_ADDRESS);
+			String CREATE_STUDENT_TABLE = "create table student(sid int not null auto_increment,name varchar(100),email varchar(120),degree varchar(120),primary key(sid));";
+			String CREATE_ADDRESS_TABLE = "create table address(aid int not null auto_increment,city varchar(100),state varchar(120),sid int references student(sid),primary key(aid));";
+			st.execute(CREATE_STUDENT_TABLE);
+			st.execute(CREATE_ADDRESS_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			util.close(st, con);
+		}
+	}
+
+	@Test
+	public void addStudent() {
+		
+		final String ADD_STUDENT = "insert into student(name,email,degree) values (?,?,?);";
+		ConnectionUtil util = ConnectionUtil.util;
+		Connection con = null;
+		PreparedStatement pst = null;
+		try {
+			System.out.println("Init is done");
+			con = util.getConnection();
+			pst = con.prepareStatement(ADD_STUDENT);
+			pst.setString(1,"Krish");
+			pst.setString(2, "krish@gmail.com");
+			pst.setString(3, "BE");
+			int count = pst.executeUpdate();
+			assertEquals(1, count);
+		}catch (Exception e) {	
+			e.printStackTrace();
+		}finally {
+			util.close(pst, con);
+		}
+		
+	}
+}

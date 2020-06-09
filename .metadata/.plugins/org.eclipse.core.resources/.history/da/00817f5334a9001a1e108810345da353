@@ -1,0 +1,30 @@
+package com.lwl.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JdbcExample {
+
+	public static void main(String[] args) {
+		Connection conn = null;
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/batch_4", "lakshman", "lakshman");
+			st = conn.createStatement();
+			rs = st.executeQuery("select ename,job,sal frome emp");
+			while(rs.next()) {
+				String name = rs.getString("ename");
+				String job = rs.getString("job");
+				float salary = rs.getFloat("sal");
+				System.out.printf("%s - %s - %d",name,job,salary);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,12 @@
+package com.lwl.jdbc.test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+public class JDBCCurdTest {
+	
+		@Test
+		public void employeeCount() {
+			assertEquals(10, 11);
+		}
+}

@@ -1,0 +1,38 @@
+package com.lwl.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.lwl.jdbc.util.ConnectionUtil;
+
+public class JdbcExample {
+	
+
+	public static void main(String[] args) {
+		Connection con = null;
+		Statement st = null;
+		ResultSet rs = null;
+		ConnectionUtil dbUtil = ConnectionUtil.util;
+		try {
+		
+			con = dbUtil.getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery("select sal,job,ename from emp");
+			while(rs.next()) {
+				String name = rs.getString("ename");
+				String job =  rs.getString("job");
+				float salary = rs.getFloat("sal");
+				System.out.printf("\n%s - %s - %.2f",name,job,salary);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("While getting employee details:"+e);
+			e.printStackTrace();
+		}finally {
+			dbUtil.close(rs, st, con);
+		}
+	}
+}

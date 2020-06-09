@@ -1,0 +1,11 @@
+package com.lwl.jdbc.test;
+
+import org.junit.jupiter.api.Test;
+
+public class JDBCCurdTest {
+	
+		@Test
+		public void employeeCount() {
+			
+		}
+}
