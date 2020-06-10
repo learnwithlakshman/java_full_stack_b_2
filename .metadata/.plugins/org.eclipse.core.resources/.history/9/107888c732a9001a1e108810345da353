@@ -1,8 +1,0 @@
-package com.lwl.jdbc;
-
-public class JdbcExample {
-
-		public static void main(String[] args) {
-			System.out.println("Welcome to Maven World!");
-		}
-}
