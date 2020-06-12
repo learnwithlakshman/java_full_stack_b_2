@@ -1,0 +1,85 @@
+#1
+
+Using course.csv file data solve the following: 
+
+	1. Get all students whose qualification is BE/MCA/BSC/B COM
+	2. Get count of all the students by qualification (BE) 
+	3. Get count of students who got placed
+	4. Get count of student who completed course but not placed
+	5. Get count of placed and not placed student
+	6. Search student by the given name
+	7. Get all the student names
+	8. Get qualification,count of the all students   (Sample : BE-400, MCA-10,B Com -2)
+	9. Get all the student who qualification and score in the given range ( BE, 80 - 90) 
+	10. Handle exceptions 
+   
+    Topics:
+    
+		Predicate
+		filter
+		map
+	    collect
+
+
+Note: to solve #2, #3 Read about Jackson
+
+#2
+
+Using emp.json and dept.json do the following:
+
+	1. Load data from json file to the Database 
+	2. Get all the employee names
+	3. Get max paid employee details
+	4. Get max count employee department
+	5. Get the employee by joining day 
+	6. Get employees who are getting salary in given range
+	7. Get ename,job,dname,location of the all employee
+	8. Get deptno,count of employees
+	9. Search employee by the given name ( Partial match )
+	10. Get max_sal,min_sal,avg_sal,count_emp of each department
+	 
+	Topics:
+	
+		SQL
+		JDBC
+		Collections
+		JSON
+		
+		
+
+#3
+
+Read quiz.json and do the following:
+	
+	1. Load questions from the quiz.json
+	2. Provide implementation where user can take quiz
+	3. Once user done with quiz show the result
+	
+	Topics:
+	
+		Collections
+		JSON
+
+
+
+Note: To solve #4 read about yaml and snake yaml 
+
+#4
+Read data from contact.yaml file do the following:
+	Setp#1
+	
+	1. CRUD operation using in-memory
+	2. Search operation 
+	
+	Setp#2
+	
+	3. Store yaml file data into DB
+	5. Perform all the operation using DB
+	
+	
+
+Quiz:  for practice question: 
+
+	   http://jsltech.blogspot.com/2014/08/
+	   
+	   
