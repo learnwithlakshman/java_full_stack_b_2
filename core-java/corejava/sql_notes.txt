@@ -1,0 +1,208 @@
+What is a DBMS?
+---------------
+
+A database management system (DBMS) is a software used to store and manage data. It guarantees the quality, durability, and confidentiality of information
+
+
+RDBMS
+-------------
+
+RDBMS stands for Relational Database Management System
+
+RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access
+
+The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows
+
+
+What is SQL?
+-------------
+
+Structured Query Language (SQL) is the standard language for data manipulation in a DBMS. In in simple words its used to talk to the data in a DBMS
+
+SQL commands: 
+
+DDL(Data Definition Language)      : Create, Alter, Drop, Truncate
+DQL(Data Query Language)           : Select
+DML(Data Manipulation Language)    : Insert, Delete, Update
+DCL(Data Control Language)         : Grant, Revoke
+TCL(Transaction Control Language)  : Commit, Rollback, Save point
+
+
+https://dev.mysql.com/downloads/mysql/
+
+MySQL - Server  : 3306
+MySQL - Client  : commandline tool
+MySQL workbench : GUI tool 
+
+mysql -u username -p (Enter)
+
+Create database:
+
+	create database <database_name>
+
+Change Database:
+
+	use <database_name>
+
+Create Table:
+	
+	create table product(pid int,pname varchar(100));
+
+
+
+Constraints:
+------------
+Constraints are the rules enforced on the data columns of a table. These are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the database
+   
+	1. Primary key
+	2. Not null
+	3. Unique
+	4. Foreign key
+	5. Default
+	6. Check 
+
+Constraints could be on :
+	
+	Table Level	
+	Column Level:
+
+Composite Primary key: 
+
+    Composite key, or composite primary key, refers to cases where more than one column is used to specify the primary key of a table.
+
+
+Numeric Data Type        : INT, FLOAT  
+
+Date and Time Data Type  : DATE, DATETIME
+
+String Data Types        : VARCHAR, CHAR
+
+
+Import and Export Data
+----------------------
+
+Export:
+	mysqldump -u username -p database_name > file.sql	
+Import: 
+	mysql -u username -p database_name < file.sql
+
+
+
+Creating Tables:
+	
+	
+
+1. Get all the employee names only
+	select ename from emp;
+	
+2. Get name, job, salary of the all the employee
+    select ename as Name,job as Job, sal as Salary from emp;
+     
+3. Get name,salary,total_sal (sal + comm) of all employees 
+	select ename,sal,comm,sal + ifnull(comm,0) as total_sal from emp;
+
+Where ?
+
+4. Get all the employees who are getting salary is more than 2000
+
+	select * from emp where sal > 2000;
+
+5. Get all the employees who are getting salary is more than 2000 and display in sorting order by salary
+	select * from emp where sal > 2000 order by sal desc,empno;
+	
+6. Get the details of employee who are working for 10 or 20 or 30
+	select * from emp where deptno = 10 or deptno = 20 or deptno = 30;
+	
+#7 Get all employees whose salary is 5000, 1600, 800, 3000
+	
+    select * from emp where sal= 5000 or sal = 1600 or sal = 800 or sal = 3000;
+    select * from emp where sal in(5000,1600,800,3000);
+    
+#8 Get all the employees who are wokring dept 10 or salary is more than 2000 
+	select * from emp where deptno = 10 or sal > 2000;
+    
+#9 Get all the employees whose salary is above 2000 and below 5500
+	select * from emp where sal > 2000 and sal < 5500;
+	
+    select * from emp where sal between 3000 and 5000;
+    
+#10 Get the all the employee who are working for dept 10 and getting salary between  1500 to 5000
+    select * from emp where deptno = 10 and sal between 1500 and 5000;
+    
+#11 Get the all the employee who are working for dept 10 and getting salary between  1500 to 5000 who has no manager
+    select * from emp where deptno = 10 and sal between 1500 and 5000 and mgr is null;
+ 
+#12 Get all the employees whose name starts with letter 'S'
+	select * from emp where ename like '____';
+
+#13 Get all the job unique names
+	select distinct(job) from emp;
+    
+#14 Get unique jobs count
+	 select count(distinct(job)) from emp;
+     
+#15 Get the max,min,avg,total salary of all the employees
+	select max(sal) as Max_sal,min(sal) as Min_sal,avg(sal) as Avg_sal,sum(sal) as Total_sal,count(empno) as Emp_count from emp;
+
+#16 Get the employee count by job wise 
+	select job,count(*) from emp group by job;
+    
+#17 Get the employee count by dept and job
+	select deptno,job,count(*) from emp group by deptno,job;
+    
+#18 Get the total salary and employee count of each department 
+     select deptno,sum(sal),count(*) from emp group by deptno;
+     
+#19 Get the total salary and employee count of each department where dept has more than 3 employee
+	  select deptno,sum(sal),count(*) from emp group by deptno having count(*) > 3;
+
+#20 Get all the employee details who are working for 'SALES'
+	 select * from emp where deptno = (select deptno from dept where dname='SALES');
+     
+#21 Get all the employee who are working for 'SALES' or 'ACCOUNTING' 
+	select * from emp where deptno in (select deptno from dept where dname in ('SALES','ACCOUNTING'));
+    
+#22 Get ename,job,sal,dname,loc all the employee 
+    select e.ename,e.job,e.sal,d.dname,d.loc from emp e inner join dept d on e.deptno=d.deptno;
+
+
+#22 Get ename,job,sal,dname,loc of employee who is working in 'NEW YORK' getting salary more than 3000 
+
+	select e.ename,e.job,e.sal,d.dname,d.loc from emp e inner join dept d where e.deptno = d.deptno and d.loc = 'NEW YORK' and e.sal > 3000;
+
+#23 Get dname,loc,total_sal,emp_count of given department  'SALES','ACCOUNTING'
+	select d.dname,d.loc,sum(e.sal),count(*) from emp e inner join dept d where e.deptno = d.deptno and 
+	d.dname='ACCOUNTING' group by d.dname;
+#24 Get ename,job,dname,grade of all the employee 
+    select e.ename,e.job,d.dname,s.grade from emp e inner join dept d inner join salgrade s where e.deptno = d.deptno and e.sal between s.losal and s.hisal; 
+
+#25 Get all the employee with department details 
+	select e.*,d.* from emp e left joincreate_synonym_db dept d on e.deptno = d.deptno;
+	
+
+#26 Procedure to get max paid employee:
+
+	CREATE DEFINER=`lakshman`@`localhost` PROCEDURE `get_all_emp_wiht_sal_grade`()
+	BEGIN
+  		DECLARE max_sal INT DEFAULT 0;
+  		select max(sal) into max_sal from emp;
+  		select e.ename,e.job,d.dname,s.grade from emp e inner join dept d inner join salgrade s where e.deptno = d.deptno and e.sal between s.losal and s.hisal and e.sal=max_sal; 
+	END
+	
+	To call store procedure:
+		call get_all_emp_wiht_sal_grade()
+		
+		
+#27 To get total salary for the given department 
+
+	CREATE DEFINER=`lakshman`@`localhost` PROCEDURE `total_sal_by_dname`(in deptname varchar(100),out tsal float)
+		BEGIN
+			select sum(e.sal) into tsal from emp e inner join dept d where e.deptno = d.deptno
+    		and d.dname = deptname;
+		END
+
+		
+	call total_sal_by_dnam('SALES',@total_sal);
+	select @total_sal
+	
+	

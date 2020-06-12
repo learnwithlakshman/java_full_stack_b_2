@@ -1,0 +1,465 @@
+Installation of JDK:
+
+
+   https://www.oracle.com/java/technologies/javase-jdk8-downloads.html
+
+   
+   JDK
+   JRE
+   
+
+   After installation:
+	
+   
+   java -version
+  
+   javac
+   java
+   
+   System Environment:
+   
+   JAVA_HOME: C:\Program Files\Java\jdk1.8.0_231
+   Path: C:\Program Files\Java\jdk1.8.0_231\bin
+   classpath: C:\Program Files\Java\jdk1.8.0_231\lib
+
+
+   Java Program:
+
+   1. HelloWorld.java
+
+	public class HelloWorld{
+	
+	    public static void main(String[] args){
+		    System.out.println("Hello World");
+	    }
+    
+    }
+
+   2. javac HelloWorld.java   ( It generate HelloWorld.class )
+   3. java HelloWorld
+      
+
+Eclipse (IDE):
+
+    https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2020-03/R/eclipse-inst-win64.exe&mirror_id=1273
+
+   
+Docs:
+
+https://docs.oracle.com/javase/tutorial/getStarted/intro/definition.html
+
+Bascis:
+
+    What is variable?
+    Keywords?
+    Identifiers?
+    Operators?
+    
+Execution:
+     Sequential
+     Iterative (for, while)
+     Selection (switch)
+     Condition (if,if-else)
+     
+Letters
+Words
+Sentence
+Paragraph
+Story
+Book
+
+Letters => [A-Z, a-z, 0-9,!@#$%^&*()_]
+keyword:
+       8- byte, short, char, int, float, long, double, boolean
+          if, else 
+          switch, case, default, break
+          do, while , for, break, continue 
+          class, interface, implements, extends
+          public, private , protected
+          static, native,.....
+ variables:
+         The name given to the memory location is called variables        
+ Operator: + - * / %
+         &&, ||, !
+         &, |
+         =,!=,>,>=,<,<=
+ Expression:
+ 		int num = 10;
+ 		int res = num * 2 + num / 10;
+     
+ Function (Method):
+ 		int getResult(int a,int b){
+ 			int res = a + b;
+ 			return res;
+ 		}
+  
+  class Opertions{  
+    int getSumt(int a,int b){
+ 			int res = a + b;
+ 			return res;
+ 	 }
+     int getProduct(int a,int b){
+ 			int res = a * b;
+ 			return res;
+ 	 }
+ }
+ 
+ Group classes or package 
+ 
+ 
+ Format Code:
+ 
+ Ctrl + Shift + F
+ 
+ Delete line:
+ 
+ Ctrl + d
+ Ctrl + / 
+ Ctrl + Shift + /
+  Ctrl + Shift + \
+ 
+ Arithmetic operators:
+  It also known as binary operators
+  +, -, *, /, %
+  
+  
+ https://git-scm.com/downloads
+ 
+ git commands:
+ 
+ git add .
+ git commit -m "Message"
+ git remote add origin https://github.com/learnwithlakshman/corejava_b_3.git
+ git push -u origin master
+ 
+ git clone  https://github.com/learnwithlakshman/corejava_b_3.git
+ 
+
+ Set git user details:
+ 
+ learnwithlakshman@gmail.com
+ https://jsltech.blogspot.com/
+ 
+ 
+ git config --global user.name "John Doe"
+ git config --global user.email johndoe@example.com
+ 
+ Sequential 
+ Conditional : if,if-else, if-else if-else
+ Iterative 
+ Selection 
+ 
+ 3 numbers and find sum and average
+ 
+ num1
+ num2
+ num3
+ 
+ sum = num1 + num2 + num3;
+ avg = sum / 3;
+ 
+ n = 10
+ 
+ 1
+ 1 2
+ 1 2 3
+ 1 2 3 4 
+ 1 2 3 4 5
+ ....
+ 1 2 3 4 5 6 7 8 9 10
+ 
+ 
+ 
+  1
+ 1 2
+ 1 2 3
+ 1 2 3 4 
+
+ -----------------------------------
+ 1 2 3 4 5 6 7 8 9 10
+ ................9
+ ..............8
+ 1 2 3 4 5
+ 1 2 3 4 
+ 1 2
+ 1
+ 
+ n = 3
+ n = 2
+ 
+ 00 01
+ 10 11 
+ 
+ 00  01  02 
+ 10  11  12
+ 20  21  22
+ 
+
+ 1
+ 2 3
+ 4 5 6
+ 7 8 9 10 
+ int k = 1;
+ for(int i=1;i<=4;i++){
+ {
+      for(int j=1;j<=i;j++){
+      	System.out.print(k +" ");
+      	k++;
+      }
+      System.out.println();
+ 
+ }
+ 
+ 
+ break
+ 
+ 12
+ 13
+ 14
+ 
+ 21
+ 23
+ 24
+ 
+ 31
+ 32
+ 34
+ 
+ 41
+ 42
+ 43
+ 
+ 
+ while(exp){
+   ------
+          
+}
+
+n = ?
+
+int i = 1;
+while(i <= n ){
+	System.out.println(i);
+	i++;
+}
+ 
+.gitignore
+
+/bin
+/bin/*
+
+https://docs.oracle.com/javase/tutorial/java/data/strings.html
+
+https://jsltech.blogspot.com/search?q=arrays
+
+https://docs.oracle.com/javase/8/docs/api/
+
+String:
+
+https://jsltech.blogspot.com/2011/12/string-stringbuffer-final.html
+
+== Operator
+equals()
+
+ => java.lang.Object
+
+StringBuffer and Builder
+Enum
+final
+   used variables/local variable
+   method : No overriding 
+   class  : No Inheritance
+   reference: It can't assigned with new object, but content can modified 
+ 
+static
+
+OOP
+
+Class:
+     It is blue print or Template 
+Object:
+     An instance of the class is called Object
+     
+.java
+     import : java.lang.*;
+     Extends : java.lang.Object
+ 
+ What is constructor ?
+  - Special method, whose name same as class name
+  - There is no return type (void also shouldn't written)
+  - It can't be called explicitly, it is called by the JVM by using new keyword
+  - It is called only once for the Object
+  - If there no user defined constructor in the class then java compiler provides default constructor
+  - Class can any number constructors with different param list, this is called constructor overloading 
+  
+  
+  this: used to call instance variable from the local scope.
+  this(): used to call constructor of the same class with different param list from another constructor
+  
+  Overloading:
+   No of params or Order of params or Types of params  must be different
+   It doesn't care about access specifier
+   It doesn't care about about exception
+   It doesn't care about return type
+  
+  Overriding:
+  	1.    No of params or Order of params or Types of params  must be same
+  	2. Access specifier should be same or less restrective 
+  	3. Return type must be same except co-varient
+  	
+  IIB
+  Static
+  
+  Interface:
+  
+  marker interface
+  functional 
+  lambda  
+  
+  https://www.baeldung.com/java-8-functional-interfaces
+  
+  
+  Abstract class
+  abstract: 
+  
+  Exceptions && IO
+  
+  try
+  catch
+  throw
+  throws
+  finally
+ 1. 
+   Question:
+   
+   int countPalindromes(String name){
+       
+   }
+   
+   tanvi
+   t a n v i ta tan tanv tanvi, an anv,anvi, nv, nvi,vi
+  
+ 2.
+  Get unique sub string:
+  
+  
+  String input: baca
+  
+  b,ba,bac,baca,a,ac,aca,ca,a  => unique ...
+  
+ 3. 
+  product information:
+ 
+ Input:
+ [ [1001,XYX,56789],[1002,XAYX,9789],[1002,XYX,56789],[1003,XYB,6789],[1005,XYXA,6789]];
+ 
+ size:  3
+ field: 2
+ 
+ field
+ 
+ 1-id
+ 2-name
+ 3-price
+
+output:
+ 
+   XYX 
+   XAYX
+   XYX
+
+ public String[] getElementInOrder(String[][] data,int size, int field){
+ 
+ 
+ }
+ 
+ 
+ --------------------------------------------------------------------------------------------------------
+ 
+ 1. Using Object Oriented Programming
+ 
+   Distance between two point
+   Distance between three points
+   
+   class Point2D
+   		 x,y;
+   		 double distance(Point2D);
+   		 
+   		 
+   class Point3D
+         double distance(Point3D)
+  		
+2. Printer
+       print()
+
+       IBM
+       Lenovo
+       Dell
+       
+       Message: "Your printing job is started by Dell"
+       
+       
+       1. IBM 2. Lenovo 3. Dell
+       
+  	   Factory Method        
+  
+ Collection:
+ 
+      java.util
+      
+
+https://docs.oracle.com/javase/tutorial/collections/intro/index.html
+	Interface
+	Implementations
+	Algorithms      
+  
+  
+  
+  overriding:
+   1. Can't reduce visibility, it should same or less restrictive access specifier  
+  
+  java.lang.Object
+  
+https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html   
+     
+
+
+
+Inner Class
+Lambda
+
+List, Set, Map, Streams
+Reflection
+
+Threads
+------------------------------------------------------------
+SQL- MySQL
+
+DDL
+DML
+DQL
+TCL
+DCL
+
+Operators:
+
+CRUD
+
+inner queries 
+join
+
+procedure
+
+-----------------------------------------------------------
+Maven
+JDBC
+-----------------------------------------------------------
+
+
+
+
+https://jsltech.blogspot.com/2014/08/java-programming-interview-questions.html
+
+https://jsltech.blogspot.com/search?q=reflection+api
+
+ 
