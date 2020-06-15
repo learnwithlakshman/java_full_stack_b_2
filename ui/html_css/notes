@@ -1,0 +1,23 @@
+
+.html
+.htm 
+
+tags =>
+
+Brwoser can understand => HTML 
+
+         root
+           head
+           body
+
+<!DOCTYPE html>
+<html>
+   <head>
+        <title>Learning HTML</title>
+   </head>
+   
+   <body>
+        <h3>This is my first HTML page</h3>
+   </body>
+
+</html>
