@@ -4,18 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning HTML</title>
-    <style>
-      .headings {
-        background: darkgray;
-        padding: 10px;
-        color: yellow;
-      }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+ 
   </head>
   <body>
-   
+   <div class="main-heading">
+      <h3>Learning HTML and CSS</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dolor similique ut et, culpa officia molestias deleniti nisi odit! Quidem cum dicta quisquam labore tempore quae vitae dolores repellat repellendus?
+      </p>
+   </div>
+   <div class="content">
     <h3 class="headings" id="headings">
       Basic tags
+
     </h3>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -29,7 +31,7 @@
     </h3>
 
     <!--Contact table-->
-     <table border="1">
+     <table class="table table-hover">
       <thead>
         <tr>
             <th colspan="4">Employee Contact Information</th>
@@ -113,5 +115,69 @@
     <p>
         <a href="profile.html">Author</a>
     </p>
+    <h3 class="headings">Forms</h3> 
+
+    <form method="POST" action="#">
+      <fieldset>
+        <h3 style="text-align: center;">Registration Form</h3>
+        <p>
+          <label>Name:</label>
+          <input type="text" name="name" placeholder="Provide full name">
+        </p>
+        <p>
+          <label>Age:</label>
+          <input type="number" name="age" placeholder="Provide age">
+        </p>
+        <p>
+          <label>Email:</label>
+          <input type="email" name="email" placeholder="Provide valid email">
+        </p>
+        <p>
+          <label>Branch:</label>
+          <select name="branch">
+              <option value="">Select Branch</option>
+              <option value="cs">CS</option>
+              <option value="is">IS</option>
+              <option value="ece">ECE</option>
+          </select>
+        </p>
+        <p>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label>
+        </p>
+        <p>
+          <label>Dream Car:</label>
+          <select id="cars" name="cars" multiple>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+          </select>
+        </p>
+        <p>
+          <label>Hobbies:</label>
+          <input type="checkbox">Reading
+          <input type="checkbox">Playing
+
+        <p>
+          <label>Introduction:</label>
+          <textarea cols="50" rows="5"></textarea>
+        </p>
+        <p>
+          <label>Upload Image</label>
+          <input type="file">
+        </p>
+        <p>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </p>
+        
+      </fieldset>
+    </form>
+  </div>
 </body>
 </html>

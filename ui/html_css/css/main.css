@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+   
+  }
+.content{
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 20px;
+ }
+.headings {
+  background: darkgray;
+  padding: 10px;
+  color: yellow;
+  margin: 0;
+  
+}
+
+.main-heading{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+
+p{
+  color:black;
+  font-size: 15px;
+}
