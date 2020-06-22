@@ -1,0 +1,32 @@
+
+
+<head>
+    
+<script>
+    // logic
+</script>
+
+
+</head>
+
+
+<body>
+    
+<script>
+    // logic
+</script>
+
+
+</body>
+
+let x = 10;
+x = "Name";
+
+number
+string
+undefined
+null
+boolean
+
+function
+Custom array/object

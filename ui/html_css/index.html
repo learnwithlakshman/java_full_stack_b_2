@@ -8,12 +8,20 @@
  
   </head>
   <body>
-   <div class="main-heading">
-      <h3>Learning HTML and CSS</h3>
+    <header>
+      <h3>Java Full Stack Development</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum dolor similique ut et, culpa officia molestias deleniti nisi odit! Quidem cum dicta quisquam labore tempore quae vitae dolores repellat repellendus?
       </p>
-   </div>
+   </header>
+   <nav>
+     <ul>
+       <li> <a href="profile.html">Profile</a></li>
+       <li><a href="profile.html">Content</a></li>
+       <li><a href="profile.html">Projects</a></li>
+       <li><a href="profile.html">Contacts</a></li>
+     </ul>
+   </nav>
    <div class="content">
     <h3 class="headings" id="headings">
       Basic tags
@@ -31,7 +39,7 @@
     </h3>
 
     <!--Contact table-->
-     <table class="table table-hover">
+     <table class="contact-details">
       <thead>
         <tr>
             <th colspan="4">Employee Contact Information</th>
@@ -116,21 +124,21 @@
         <a href="profile.html">Author</a>
     </p>
     <h3 class="headings">Forms</h3> 
-
-    <form method="POST" action="#">
-      <fieldset>
+    <div id="formBox">
+    <form method="POST" action="#" class="regForm">
+    
         <h3 style="text-align: center;">Registration Form</h3>
         <p>
           <label>Name:</label>
-          <input type="text" name="name" placeholder="Provide full name">
+          <input type="text" class="clsText" name="name" placeholder="Provide full name">
         </p>
         <p>
           <label>Age:</label>
-          <input type="number" name="age" placeholder="Provide age">
+          <input type="number" class="clsText" name="age" placeholder="Provide age">
         </p>
         <p>
           <label>Email:</label>
-          <input type="email" name="email" placeholder="Provide valid email">
+          <input type="email" class="clsText" name="email" placeholder="Provide valid email">
         </p>
         <p>
           <label>Branch:</label>
@@ -142,12 +150,13 @@
           </select>
         </p>
         <p>
-          <input type="radio" id="male" name="gender" value="male">
-          <label for="male">Male</label>
-          <input type="radio" id="female" name="gender" value="female">
-          <label for="female">Female</label>
-          <input type="radio" id="other" name="gender" value="other">
-          <label for="other">Other</label>
+          <label>Gender:</label>
+          <input type="radio" id="male" name="gender" value="male">  Male
+        
+          <input type="radio" id="female" name="gender" value="female">  Female
+         
+          <input type="radio" id="other" name="gender" value="other">  Others
+        
         </p>
         <p>
           <label>Dream Car:</label>
@@ -160,8 +169,8 @@
         </p>
         <p>
           <label>Hobbies:</label>
-          <input type="checkbox">Reading
-          <input type="checkbox">Playing
+          <input type="checkbox"> Reading
+          <input type="checkbox"> Playing
 
         <p>
           <label>Introduction:</label>
@@ -176,8 +185,9 @@
           <input type="reset" value="Reset">
         </p>
         
-      </fieldset>
+    
     </form>
+  </div>
   </div>
 </body>
 </html>
