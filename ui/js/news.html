@@ -1,0 +1,57 @@
+<!doctype html>  
+ <html lang="en">  
+  <head>  
+   <!-- Required meta tags -->  
+   <meta charset="utf-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+   <!-- Bootstrap CSS -->  
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+   <title>News - Items</title>  
+    <style>
+         #subBtn{  
+             margin-top: 13%;  
+        }  
+    </style>
+</head>  
+  <body>  
+   <div class="py-3 bg-primary text-white text-center">  
+     <h3>Search worldwide news with code</h3>  
+     <p class="lead">Get breaking news headlines, and search for articles from over 30,000 news sources and blogs with our news API</p>  
+   </div>  
+   <div class="container">  
+     <h5 class="text-muted text-center mt-2">Please select the details to get updated news</h5>  
+     <div class="row">  
+       <div class="col-md-3"></div>  
+       <div class="col-md-3">  
+         <label for="country">Select Country</label>  
+         <select class="form-control" id="country">  
+           <option value="in">India</option>  
+           <option value="us">United State</option>  
+           <option value="sg">Singapore</option>  
+         </select>  
+       </div>  
+       <div class="col-md-3">  
+         <label for="category">Select Category</label>  
+         <select class="form-control" id="category">  
+           <option value="sports">Sports</option>  
+           <option value="health">Health</option>  
+           <option value="business">Business</option>  
+         </select>  
+       </div>  
+       <div class="col-md-3">  
+         <button id="subBtn" class="btn btn-primary">Submit</button>  
+       </div>  
+     </div>  
+     <!--New items-->  
+     <div class="row mt-5">  
+       <div class="col-md-6 offset-md-3" id="showResult">  
+       </div>  
+     </div>  
+    </div>  
+   <!-- Optional JavaScript -->  
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->  
+  
+  
+   <script src="js/news.js"></script>  
+ </body>  
+ </html>  

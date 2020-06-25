@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stdent Details</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .show{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="py-3 bg-danger text-white text-center">
@@ -37,8 +42,16 @@
                     </label>
                     <input type="text"  id="idMobile" class="form-control" placeholder="Enter the name">
                 </div>
+                
                 <div class="form-group">
-                    <input type="button" class="btn btn-primary" id="idBtnSubmit" value="Submit">
+                    <label>
+                        City
+                    </label>
+                    <input type="text"  id="idCity" class="form-control" placeholder="Enter the city name">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" id="idBtnSubmit">Submit</button>
+                    <input type="button" class="btn btn-primary show" id="idBtnUpdate" value="Update">
                 </div>
             </form>
         </div>
@@ -46,5 +59,8 @@
 </div>
    <script src="js/contact.js"></script>
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+ 
+
+    
 </body>
 </html>

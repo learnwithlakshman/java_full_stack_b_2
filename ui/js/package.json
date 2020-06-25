@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootbox": "^5.4.0",
     "live-server": "^1.2.1"
   }
 }
