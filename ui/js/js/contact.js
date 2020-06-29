@@ -78,11 +78,17 @@ function deleteContact(cid) {
 }
 }
 function viewContacts() {
-
   fetch('https://lwl-cb.herokuapp.com/api/capp/getall').then(res=>{
       return res.json();
   }).then(contacts=>{
-    html = "";
+      showContacts(contacts);
+  }).catch(error=>{
+      console.log(error)
+  })
+}
+
+function showContacts(contacts){
+     html = "";
     if (contacts.length == 0) {
       html +=
         "<p class='lead'>Contacts are not yet added please add to view....</p>";
@@ -108,12 +114,8 @@ function viewContacts() {
       } 
       idShowTable.innerHTML = html;
     }
-    idShowTable.innerHTML = html;
-  })
-
- 
+     idShowTable.innerHTML = html;
 }
-
 function updateContact(contact) {
   index = indexOf(contact["cid"]);
   if (index != -1) {
