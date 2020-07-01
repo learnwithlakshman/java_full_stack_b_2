@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-4">
+    <h5>Data Binding</h5>
+    <hr />
+    <img [src]="imgPath" />
+  </div>
+  <div class="col-md-4">
+    <h5>Directives</h5>
+    <hr />
+    <p> <u><strong>Ng-If</strong></u></p>
+    <div *ngIf="users && users.length != 0; then userlist; else nousers"></div>
+
+    <ng-template #userlist>
+      <ul>
+        <li *ngFor="let user of users">{{ user }}</li>
+      </ul>
+    </ng-template>
+    <ng-template #nousers>
+      <h5>There are no users in the list</h5>
+    </ng-template>
+    <p> <u><strong>Ng-For</strong></u></p>
+    <i
+      *ngFor="let user of users; index as i; even as isEven"
+      class="numberCls"
+      [ngClass]="isEven ? 'even' : 'odd'"
+    >
+      {{ i + 1 }}. {{ user }} <br />
+    </i>
+    <p><u><strong>Ng-Switch</strong></u></p>
+    <button class="btn btn-primary ml-2" (click)="view = 'clasic'">Clasic</button>
+    <button class="btn btn-primary ml-2" (click)="view = 'table'">Table</button>
+    <button class="btn btn-primary ml-2" (click)="view = 'list'">List</button>
+    <div [ngSwitch]="view">
+      <div *ngSwitchCase="'table'">
+        <h3>Table view</h3>
+      </div>
+      <div *ngSwitchCase="'clasic'">
+        <h3>Clasic view</h3>
+      </div>
+      <div *ngSwitchCase="'list'">
+        <h3>List view</h3>
+      </div>
+      <div *ngSwitchDefault>
+        <h3>Default List view</h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+  <h5>Two-way binding</h5>
+  <hr>
+  <input type="text" class="form-control" [(ngModel)]="searchStr" placeholder="Enter the name to search">
+  <br>
+  {{searchStr}}
+
+  <h5>Event binding</h5>
+  <img [src]="imgUrl">
+  <p class="mt-2">
+  <button class="bnt btn-primary" (click)="changeStatus()">on/off</button>
+  </p>
+  </div>
+</div>
