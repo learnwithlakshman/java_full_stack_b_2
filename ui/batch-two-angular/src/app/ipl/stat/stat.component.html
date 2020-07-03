@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6">
+    <div *ngIf="labels && labels.length!=0">
+      <select class="form-control" (change)="getPlayerDetails()" [(ngModel)]="selectedTeamLabel">
+          <option value="">Select Team</option>
+          <option *ngFor="let label of labels" value={{label}}>{{label}}</option>
+      </select>
+    </div>
+    <hr>
+    <div *ngIf="players && players.length > 0">
+      {{players | json}}
+    </div>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>

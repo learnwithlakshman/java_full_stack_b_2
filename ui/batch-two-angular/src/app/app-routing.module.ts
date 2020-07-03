@@ -1,3 +1,4 @@
+import { IplModule } from './ipl/ipl.module';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserComponent } from './user/user.component';
 import { QuizComponent } from './quiz/quiz.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
       },
       {
         path:'ipl',
-        component:IplComponent
+        loadChildren: ()=>import('./ipl/ipl.module').then(m=>m.IplModule)
       },{
         path:'quiz',
         component:QuizComponent

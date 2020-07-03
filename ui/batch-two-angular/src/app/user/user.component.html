@@ -9,7 +9,13 @@
     <ng-template #withdata>
 
       <ul class="list-group list-group-flush ">
-        <li class="list-group-item" *ngFor="let user of users">{{user}}</li>
+        <li class="list-group-item" *ngFor="let user of users">{{user}}
+          <span style="float:right">
+            <i class="fa fa-edit" (click)="editUser(user)"></i>&nbsp;
+            <i class="fa fa-trash"(click)="deleteUser(user)"></i>
+          </span>
+
+        </li>
        </ul>
    </ng-template>
    <ng-template #withoutdata>

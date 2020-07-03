@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -7,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BasicsComponent } from './basics/basics.component';
 import { UserComponent } from './user/user.component';
-import { IplComponent } from './ipl/ipl.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
@@ -17,7 +17,6 @@ import { NotfoundComponent } from './notfound/notfound.component';
     HeaderComponent,
     BasicsComponent,
     UserComponent,
-    IplComponent,
     QuizComponent,
     NotfoundComponent
 
@@ -25,7 +24,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
