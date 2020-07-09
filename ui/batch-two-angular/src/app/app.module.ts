@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { Ng2GoogleChartsModule, GoogleChartsSettings } from 'ng2-google-charts';
 import { HeaderComponent } from './header/header.component';
 import { BasicsComponent } from './basics/basics.component';
 import { UserComponent } from './user/user.component';
@@ -25,7 +25,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2GoogleChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

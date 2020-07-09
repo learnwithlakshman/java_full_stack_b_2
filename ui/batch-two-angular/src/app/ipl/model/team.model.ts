@@ -7,12 +7,15 @@ export interface Team{
     players:Player[];
 }
 export interface Player{
-  player:string;
+  label:string;
+  name:string;
   price:number;
   role:string;
 }
-
 export interface RoleCount{
-    name:string;
+    roleName:string;
     count:number;
+}
+export interface TeamLabels{
+    labels:string[];
 }

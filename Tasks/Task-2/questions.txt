@@ -1,0 +1,13 @@
+Task#2
+
+Load question from question.txt and create and start quiz. once user submit quiz it should show the result.
+
+1. No of questions Correct
+2. No of question Wrong
+3. Secured percentage
+4. Result
+
+Note: No database is required use the in memory and implement 
+
+
+	

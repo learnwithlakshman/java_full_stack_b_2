@@ -12,10 +12,7 @@ export class TeamsComponent implements OnInit {
   teams:Team[] = [];
 
   constructor(private iplService:IplService) {
-
-      console.log(this.iplService.getTeamLabels());
-
-   }
+  }
 
   ngOnInit(): void {
   }
