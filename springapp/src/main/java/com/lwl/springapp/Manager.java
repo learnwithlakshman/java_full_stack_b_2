@@ -24,8 +24,10 @@ public class Manager {
 		
 		
 		 ApplicationContext context = new AnnotationConfigApplicationContext(Manager.class);
-		 Greetings greetings = context.getBean(Greetings.class);
-		 greetings.sendMessage();
+		 String[] names = context.getBeanDefinitionNames();
+		 for(String name:names) {
+			 System.out.println(name);
+		 }
 	}
 	
 	

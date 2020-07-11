@@ -3,19 +3,19 @@ package com.lwl.springapp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class AppConfiguration {
 		
 		@Bean
 		public Greetings greetings() {
 			BirthdayGreetings obj = new BirthdayGreetings();
 			obj.setMessage("Happy Birthday!....");
-			obj.setSender(sender());
+			obj.setSender(senderObject());
 			return obj;
 		}
 		
-		@Bean
-		public Sender sender() {
+		@Bean(name = "senderObj")
+		public Sender senderObject() {
 			return new Sender();
 		}
 }
