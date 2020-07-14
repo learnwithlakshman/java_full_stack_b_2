@@ -15,13 +15,11 @@ import com.lwl.iplserverapp.service.TeamService;
 @RestController
 @RequestMapping("/api/v1/ipl")
 public class TeamController {
-
+	
+	@Autowired
 	private TeamService teamService;
 
-	@Autowired
-	public TeamController(TeamService teamService) {
-		this.teamService = teamService;
-	}
+	
 
 	@PostMapping("/addteam")
 	public Team addTeam(@RequestBody Team team) {

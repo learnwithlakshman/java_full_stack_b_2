@@ -1,5 +1,7 @@
 package com.lwl.iplserverapp.domain;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,11 +17,14 @@ import lombok.ToString;
 @ToString
 public class Team {
 
-		private String id;
+		private String label;
+		private String city;
+		private String home;
+		private String coach;
 		private String name;
-		public Team(String name) {
-			this.name = name;
-		}
+		
+		private List<Player> players;
+		
 		
 		
 	

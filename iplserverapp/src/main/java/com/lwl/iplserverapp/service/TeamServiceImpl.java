@@ -1,40 +1,38 @@
 package com.lwl.iplserverapp.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lwl.iplserverapp.domain.Team;
 
-
+@Service
 public class TeamServiceImpl implements TeamService {
+	
+	private Logger log = LoggerFactory.getLogger(TeamServiceImpl.class);
+	private AppSeedDataService appDataService;
 
-	private Map<String, Team> map = new HashMap<>();
+	
 
-	public TeamServiceImpl() {
-		String uuid = UUID.randomUUID().toString();
-		Team team = Team.builder().id(uuid).name("CSK").build();
-		map.put(uuid, team);
-		uuid = UUID.randomUUID().toString();
-		team = Team.builder().id(uuid).name("RCB").build();
-		map.put(uuid, team);
+	@Autowired
+	public TeamServiceImpl(AppSeedDataService appDataService) {
+		this.appDataService = appDataService;
+		
 	}
 
 	@Override
 	public Team addTeam(Team team) {
-		String uuid = UUID.randomUUID().toString();
-		team.setId(uuid);
-		map.put(uuid, team);
-		return team;
+		return null;
 	}
 
 	@Override
 	public List<Team> getTeams() {
-		ArrayList<Team> list = new ArrayList<>();
-		list.addAll(map.values());
-		return list;
+		List<Team> teams = this.appDataService.getTeamList();
+		log.info("Total {} teams found",teams.size());
+		return teams;
 	}
 
 }
