@@ -8,4 +8,8 @@ public interface TeamService {
 	
 			public Team addTeam(Team team);
 			public List<Team> getTeams();
+			public List<Team> search(String str);
+			public boolean removeTeam(String label);
+			public Team updateTeam(Team team);
+			public Team getTeam(String label);
 }
