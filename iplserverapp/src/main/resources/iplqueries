@@ -1,0 +1,69 @@
+#1
+
+[{
+    $group: {
+        _id: null,
+        labels: {
+            "$addToSet": "$_id"
+        }
+    }
+}]
+
+#2
+
+db.getCollection('team').aggregate([
+
+        {"$match":{_id:"MI"}},
+        {
+            "$unwind":"$players"
+        },
+        {
+           "$project":{name:"$players.name",role:"$players.role",lable:"$_id",price:"$players.price",_id:0} 
+        }
+])
+
+#3
+
+[{
+    $match: {
+        "_id": "CSK"
+    }
+}, {
+    $unwind: "$players"
+}, {
+    $group: {
+        _id: "$players.role",
+        count: {
+            "$sum": 1
+        }
+    }
+}, {
+    $project: {
+        "role": "$_id",
+        count: 1,
+        _id: 0
+    }
+}]
+
+
+#4
+
+[{
+    $match: {
+        "_id": "CSK"
+    }
+}, {
+    $unwind: "$players"
+}, {
+    $match: {
+        "players.role": "Batsman"
+    }
+}, {
+    $project: {
+        name: "$players.name",
+        role: "$players.role",
+        label: "$_id",
+        price: "$players.price",
+        _id: 0
+    }
+}]
