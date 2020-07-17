@@ -8,9 +8,9 @@ import com.lwl.iplserverapp.dto.TeamLabelDTO;
 
 public interface TeamDAO {
 	
-	public TeamLabelDTO getTeamLabels();
-	public List<PlayerDTO> getPlayersByTeam(String label);
-	public List<RoleCountDTO> getRoleCountByTeam(String label);
-	public List<PlayerDTO> getPlayerByTeamAndRole(String label,String role);
+	public TeamLabelDTO selectTeamLabels();
+	public List<PlayerDTO> selectPlayersByTeam(String label);
+	public List<RoleCountDTO> selectRoleCountByTeam(String label);
+	public List<PlayerDTO> selectPlayerByTeamAndRole(String label,String role);
 	
 }

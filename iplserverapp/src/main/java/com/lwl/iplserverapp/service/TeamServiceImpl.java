@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.lwl.iplserverapp.dao.TeamDAO;
 import com.lwl.iplserverapp.domain.Team;
+import com.lwl.iplserverapp.dto.PlayerDTO;
+import com.lwl.iplserverapp.dto.RoleCountDTO;
+import com.lwl.iplserverapp.dto.TeamLabelDTO;
 import com.lwl.iplserverapp.repo.TeamRepo;
 import com.lwl.iplserverapp.service.exception.TeamNotFoundException;
 
@@ -22,6 +26,9 @@ public class TeamServiceImpl implements TeamService {
 
 	@Autowired
 	private TeamRepo teamRepo;
+
+	@Autowired
+	private TeamDAO teamDao;
 
 	@Override
 	public Team addTeam(Team team) {
@@ -59,7 +66,6 @@ public class TeamServiceImpl implements TeamService {
 			throw new TeamNotFoundException(String.format(labelNotFoundMessage, label));
 		}
 	}
-	
 
 	@Override
 	public Team updateTeam(Team team) {
@@ -80,6 +86,30 @@ public class TeamServiceImpl implements TeamService {
 		Assert.notNull(label, "Search label can't be emtpy or null");
 		Optional<Team> optTeam = teamRepo.findById(label);
 		return optTeam.orElseThrow(() -> new TeamNotFoundException(String.format(labelNotFoundMessage, label)));
+	}
+
+	@Override
+	public TeamLabelDTO getTeamLabels() {
+		return teamDao.selectTeamLabels();
+	}
+
+	@Override
+	public List<PlayerDTO> getPlayersByTeam(String label) {
+		Assert.notNull(label, "Team label can't be null or empty");
+		return teamDao.selectPlayersByTeam(label);
+	}
+
+	@Override
+	public List<RoleCountDTO> getRoleCountByTeam(String label) {
+		Assert.notNull(label, "Team label can't be null or empty");
+		return teamDao.selectRoleCountByTeam(label);
+	}
+
+	@Override
+	public List<PlayerDTO> getPlayerByTeamAndRole(String label, String role) {
+		Assert.notNull(label, "Team label can't be null or empty");
+		Assert.notNull(label, "Team label can't be null or empty");
+		return teamDao.selectPlayerByTeamAndRole(label, role);
 	}
 
 }

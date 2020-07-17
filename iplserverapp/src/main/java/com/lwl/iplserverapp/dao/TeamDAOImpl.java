@@ -31,7 +31,7 @@ public class TeamDAOImpl implements TeamDAO {
 	private MongoOperations mongoOpe;
 
 	@Override
-	public TeamLabelDTO getTeamLabels() {
+	public TeamLabelDTO selectTeamLabels() {
 		GroupOperation group = group().addToSet("_id").as("labels");
 		ProjectionOperation project = project().and("labels").as("labels").andExclude("_id");
 		Aggregation agg = Aggregation.newAggregation(group, project);
@@ -41,7 +41,7 @@ public class TeamDAOImpl implements TeamDAO {
 	}
 
 	@Override
-	public List<PlayerDTO> getPlayersByTeam(String label) {
+	public List<PlayerDTO> selectPlayersByTeam(String label) {
 		MatchOperation match = match(Criteria.where("_id").is(label));
 		UnwindOperation unwind = unwind("players");
 		ProjectionOperation project = project().and("players.name").as("name").and("players.role").as("role")
@@ -50,20 +50,38 @@ public class TeamDAOImpl implements TeamDAO {
 		Aggregation aggQuery = Aggregation.newAggregation(match, unwind, project);
 		AggregationResults<PlayerDTO> result = mongoOpe.aggregate(aggQuery, "team", PlayerDTO.class);
 		List<PlayerDTO> players = result.getMappedResults();
-		log.info("Total player found for team {} is {}",label,players.size());
+		log.info("Total player found for team {} is {}", label, players.size());
 		return players;
 	}
 
 	@Override
-	public List<RoleCountDTO> getRoleCountByTeam(String label) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RoleCountDTO> selectRoleCountByTeam(String label) {
+		MatchOperation match = match(Criteria.where("_id").is("CSK"));
+		UnwindOperation unwind = unwind("players");
+		GroupOperation group = group("players.role").count().as("count");
+		ProjectionOperation project = project().and("_id").as("roleName").and("count").as("count").andExclude("_id");
+		Aggregation agg = Aggregation.newAggregation(match, unwind, group, project);
+		AggregationResults<RoleCountDTO> res = mongoOpe.aggregate(agg, "team", RoleCountDTO.class);
+		List<RoleCountDTO> list = res.getMappedResults();
+		log.info("Total roles found in DB:{}" , list.size());
+		return list;
 	}
 
 	@Override
-	public List<PlayerDTO> getPlayerByTeamAndRole(String label, String role){
-		// TODO Auto-generated method stub
-		return null;
+	public List<PlayerDTO> selectPlayerByTeamAndRole(String label, String role) {
+		
+		MatchOperation match1 = match(Criteria.where("_id").is(label));
+		UnwindOperation unwind =  unwind("players");
+		MatchOperation match2 = match(Criteria.where("players.role").is(role));
+		ProjectionOperation project = project().and("players.name").as("name").and("players.role").as("role")
+				.and("players.price").as("price").and("_id").as("label").andExclude("_id");
+
+		Aggregation aggQuery = Aggregation.newAggregation(match1, unwind,match2, project);
+		AggregationResults<PlayerDTO> result = mongoOpe.aggregate(aggQuery, "team", PlayerDTO.class);
+		List<PlayerDTO> players = result.getMappedResults();
+		log.info("Total player found for team {} and for role: {} is {}", label, role, players.size());
+		return players;
+		
 	}
 
 }
