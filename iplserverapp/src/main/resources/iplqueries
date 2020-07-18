@@ -1,3 +1,15 @@
+
+Reference:
+
+	https://niranjan-ipl.firebaseapp.com/iplstat
+
+	server application
+
+	iplclient
+		npm install
+		ng s
+		
+
 #1
 
 [{
