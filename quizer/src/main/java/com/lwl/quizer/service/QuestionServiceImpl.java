@@ -11,7 +11,7 @@ public class QuestionServiceImpl implements QuestionService {
 
 	@Override
 	public List<Integer> getPrimeInRange(int lb, int ub) {
-		return IntStream.rangeClosed(lb, ub).boxed().filter(e -> isPrime(e)).collect(Collectors.toList());
+		return IntStream.rangeClosed(lb, ub).boxed().filter(QuestionServiceImpl::isPrime).collect(Collectors.toList());
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class QuestionServiceImpl implements QuestionService {
 		return temp == rev;
 	}
 
-	private boolean isPrime(int num) {
+	private static boolean isPrime(int num) {
 		if (num < 1) {
 			return false;
 		}

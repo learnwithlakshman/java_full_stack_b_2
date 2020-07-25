@@ -1,0 +1,10 @@
+paytm:
+  account: 
+    merchantKey: {your key}
+    paytmUrl:  https://securegw-stage.paytm.in/order/process
+    details:
+      MID: {your mid}
+      CHANNEL_ID: WEB
+      INDUSTRY_TYPE_ID: Retail
+      WEBSITE: WEBSTAGING
+      CALLBACK_URL: http://localhost:8088/paymentresponse

@@ -1,0 +1,26 @@
+paytm:
+  account: 
+    merchantKey: VuhL8UrmgwYgY7p0
+    paytmUrl:  https://securegw-stage.paytm.in/order/process
+    details:
+      MID: tiVPJf06346165343271
+      CHANNEL_ID: WEB
+      INDUSTRY_TYPE_ID: Retail
+      WEBSITE: WEBSTAGING
+      CALLBACK_URL: http://localhost:8088/paymentresponse
+
+
+app: 
+  products: 
+    - 
+      pid: 10001
+      name: "Dell XPS"
+      price: 1
+    - 
+      pid: 10002
+      name: Lenovo
+      price: 2
+    - 
+      pid: 10003
+      name: MacAirBook
+      price: 3
